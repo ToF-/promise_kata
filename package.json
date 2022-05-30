@@ -1,0 +1,11 @@
+{
+  "name": "promise_kata",
+  "version": "1.0.0",
+  "description": "a kata on callbacks, promises, async/await",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "ToF_",
+  "license": "ISC"
+}
