@@ -6,7 +6,7 @@ const delayedSquare = (x =>  {
 describe('a delayed square function', () => {
     it('it should compare result after a 2 secs', (done) => {
         delayedSquare(42).then(result => {
-            try {
+            try{
                 expect(result).toStrictEqual(1764)
                 done()
             } catch(error) {
