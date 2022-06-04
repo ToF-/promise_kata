@@ -1,17 +1,12 @@
-const delayedSquare = (x =>  {
-    return new Promise(resolve => setTimeout( () => { resolve(x*x) }, 2000))
-})
+const catFact = require('../src/catFact')
 
-
-describe('a delayed square function', () => {
-    it('it should compare result after a 2 secs', (done) => {
-        delayedSquare(42).then(result => {
-            try {
-                expect(result).toStrictEqual(1764)
-                done()
-            } catch(error) {
-                done(error)
-            }
+describe('a cat fact function', () => {
+    it('it should return a cat fact', (done) => {
+        catFact(result => {
+            expect(result).not.toBeUndefined()
+            expect(result.fact).not.toBeUndefined()
+            expect(result.length).toBeGreaterThan(0)
+            done()
         })
     })
 })
