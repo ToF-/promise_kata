@@ -1,0 +1,12 @@
+
+keep
+
+- le set up
+- ToF au clavier : efficace
+- on a fait un plan
+- a deux on se souvient à peu près de js
+- a découpé le problème en problèmes plus simple
+
+improve
+- ToF au clavier : est-ce que c'est équilibré ?
+
