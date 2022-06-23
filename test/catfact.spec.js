@@ -13,12 +13,7 @@
 
  */
 
-const delayed_multiplication = (x,y, callback) => {
-    const result = x * y;
-    setTimeout( () => {
-        callback(result);
-    }, 3000)
-};
+const delayed_multiplication = require("../src/delayedMultiplication");
 
 describe("a delayed multiplication", () => {
     it("should produce a result after 3 seconds", (done_callback) => {
