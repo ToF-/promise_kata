@@ -1,6 +1,6 @@
 const repeated_multiplication = (x, y, callback) => {
     const result = x * y;
-    setInterval(() => {
+    return setInterval(() => {
         callback(result);
     }, 1000)
 };

@@ -17,14 +17,14 @@ const repeated_multiplication = require("../src/repeatedMultiplication");
 const delayed_multiplication = require("../src/delayedMultiplication");
 
 describe("a delayed multiplication", () => {
-    it("should produce a result after 3 seconds", (done_callback) => {
+    it("should produce a result after 1 seconds", (done_callback) => {
         const zeroTime = new Date().getTime()
         delayed_multiplication(4,5, (result) => {
             try{
                 expect(result).toEqual(20);
 
                 const doneTime = new Date().getTime()
-                expect(doneTime - zeroTime).toBeGreaterThan(2999)
+                expect(doneTime - zeroTime).toBeGreaterThan(999)
                 done_callback();
             }
             catch(error) {
@@ -36,16 +36,19 @@ describe("a delayed multiplication", () => {
 
 describe("a repeated multiplication", () => {
     // ce test est contradictoire et à réparer
-    it("should produce a result every 3 seconds", (done_callback) => {
-        repeated_multiplication(4, 5, (result) => {
-            try{
-                expect(result).toEqual(20);
-                done_callback();
-            }
-            catch(error) {
-                done_callback(error)
-            }
+    it("should produce a result every 1 seconds", (done_callback) => {
+        let zeroTime = new Date().getTime()
+        const id = repeated_multiplication(4, 5, (result) => {
+            let doneTime = new Date().getTime()
+            console.log(doneTime)
+            expect(doneTime - zeroTime).toBeGreaterThan(990)
+            expect(doneTime - zeroTime).toBeLessThan(1110)
+            zeroTime = new Date().getTime()
         })
+        setTimeout(() => {
+            clearInterval(id);
+            done_callback();
+            },3500);
     })
 })
 
