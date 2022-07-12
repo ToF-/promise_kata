@@ -38,17 +38,21 @@ describe("a repeated multiplication", () => {
     // ce test est contradictoire et à réparer
     it("should produce a result every 1 seconds", (done_callback) => {
         let zeroTime = new Date().getTime()
+        let delays = [];
         const id = repeated_multiplication(4, 5, (result) => {
             let doneTime = new Date().getTime()
-            console.log(doneTime)
-            expect(doneTime - zeroTime).toBeGreaterThan(990)
-            expect(doneTime - zeroTime).toBeLessThan(1110)
+            delays.push(doneTime - zeroTime)
             zeroTime = new Date().getTime()
         })
         setTimeout(() => {
             clearInterval(id);
+            console.log(delays);
+            let sumDelays = delays.reduce((acc, n) => acc + n, 0);
+            let avgDelays = sumDelays/delays.length;
+            expect(avgDelays).toBeGreaterThan(950);
+            expect(avgDelays).toBeLessThan(1050);
             done_callback();
-            },3500);
+            },4900);
     })
 })
 
