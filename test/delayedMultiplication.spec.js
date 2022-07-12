@@ -35,7 +35,6 @@ describe("a delayed multiplication", () => {
 })
 
 describe("a repeated multiplication", () => {
-    // ce test est contradictoire et à réparer
     it("should produce a result every 1 seconds", (done_callback) => {
         let zeroTime = new Date().getTime()
         let delays = [];
@@ -52,7 +51,8 @@ describe("a repeated multiplication", () => {
             expect(avgDelays).toBeGreaterThan(950);
             expect(avgDelays).toBeLessThan(1050);
             done_callback();
-            },4900);
+            },
+            4900);
     })
 })
 
