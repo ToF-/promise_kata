@@ -8,7 +8,6 @@ describe("fetchUrl", () => {
         fetchUrl("https://catfact.ninja/fact", content => {
             expect(content).not.toBeUndefined();
             expect(content.fact).not.toBeUndefined();
-            console.log(content);
             done_callback(); // terminate the test process so that log can be displayed
         });
     });

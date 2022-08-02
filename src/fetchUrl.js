@@ -8,10 +8,9 @@
 
 const fetchUrl = (url, what_to_do_with_it) => {
 
-    const call_back = (content) => {
-        what_to_do_with_it(content);
-    }
-    fetch(url).then(res => res.json().then(call_back));
+    fetch(url).then(res =>
+        res.json().then(content =>
+            what_to_do_with_it(content)));
 }
 
 module.exports = fetchUrl;
