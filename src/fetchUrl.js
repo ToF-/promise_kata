@@ -8,9 +8,18 @@
 
 const fetchUrl = (url, what_to_do_with_it) => {
 
-    fetch(url).then(res =>
+    const success = res => {
+        console.log("success!");
         res.json().then(content =>
-            what_to_do_with_it(content)));
+            what_to_do_with_it(content,null)
+        )};
+
+    const failure = error => {
+        what_to_do_with_it(null, error);
+    };
+
+    fetch(url).then(success).catch(failure);
 }
 
 module.exports = fetchUrl;
+
